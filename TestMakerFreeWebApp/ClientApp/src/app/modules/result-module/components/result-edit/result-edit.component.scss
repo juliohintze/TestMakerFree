@@ -1,0 +1,20 @@
+form {
+    .quiz-title {
+        p {
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+    }
+
+    .control-container,
+    .quiz-title {
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+
+    .buttons {
+        button + button {
+            margin-left: 16px;
+        }
+    }
+}

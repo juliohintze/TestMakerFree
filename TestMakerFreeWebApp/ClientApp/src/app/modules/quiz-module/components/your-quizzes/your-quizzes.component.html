@@ -1,0 +1,20 @@
+<div *ngIf="quizSearch">
+    <div class="title">
+        <h2>{{title}}</h2>
+    </div>
+    
+    <form (submit)="onSearchSubmit()">
+        <div class="search-box">
+            <fa-icon [icon]="faSearch"></fa-icon>
+            <label class="floating-label">
+                <input type="text" class="form-control" placeholder=" " name="searchQuery" [(ngModel)]="searchQuery">
+                <span>Search quiz</span>
+            </label>
+        </div>
+    </form>
+
+    <p *ngIf="resultsFiltered">{{quizSearch.totalResults + (quizSearch.totalResults === 1 ? ' result' : ' results')}} found</p>
+    <app-quiz-list [list]="quizSearch.results"></app-quiz-list>
+    
+    <app-pagination [current-page]="currentPage" [last-page]="quizSearch.totalPages" (pageChange)="goToPage($event)"></app-pagination>
+</div>

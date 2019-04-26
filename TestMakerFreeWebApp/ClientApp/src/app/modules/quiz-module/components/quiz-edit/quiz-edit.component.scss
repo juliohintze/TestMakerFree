@@ -1,0 +1,41 @@
+.tab-content {
+    h3 {
+        margin-top: 0px;
+    }
+
+    form {
+        .control-container {
+            margin-top: 16px;
+            margin-bottom: 16px;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+
+            button + button {
+                margin-top: 8px;
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .tab-content {
+        form {
+            .quiz-options {
+                flex-direction: row;
+                align-content: justify;
+
+                button + button {
+                    margin-top: auto;
+                    margin-left: 8px;
+                }
+
+                button:last-child {
+                    float: right;
+                }
+            }
+        }
+    }
+}

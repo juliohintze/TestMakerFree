@@ -1,0 +1,26 @@
+<h2>{{editMode ? 'Edit result' : 'Create result'}}</h2>
+
+<div *ngIf="result && quiz">
+    <form [formGroup]="form" (ngSubmit)="onSave()">
+        <div class="quiz-title">
+            <p class="bold">Quiz title:</p>
+            <p>{{quiz.title}}</p>
+        </div>
+    
+        <div class="control-container">
+            <label for="txtText" class="bold">Result text:</label>
+            <textarea id="txtText" class="form-control" formControlName="text" [ngClass]="{'error': hasError('text')}"></textarea>
+            <p *ngIf="hasError('text')" class="error-message">This field can't be blank!</p>
+        </div>
+    
+        <div class="buttons">
+            <button class="btn-blue" type="submit" [disabled]="!form.valid">
+                <fa-icon [icon]="faSave"></fa-icon> {{editMode ? 'Save changes' : 'Create result'}}
+            </button>
+            <button class="btn-red" (click)="onBack()" type="button">
+                <fa-icon [icon]="faTimes"></fa-icon> Go back
+            </button>
+        </div>
+    </form>
+</div>
+

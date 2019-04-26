@@ -1,0 +1,36 @@
+.title-options {
+    display: flex;
+    align-items: center;
+
+    h2 {
+        flex: 1;
+    }
+
+    .btn-group {
+        display: flex;
+        align-items: center;
+    }
+
+    button {
+        span {
+            display: none;
+            margin-left: 8px;
+        }
+    }
+}
+
+.options {
+    button + button {
+        margin-left: 16px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .title-options {
+        button {
+            span {
+                display: inline;
+            }
+        }
+    }
+}

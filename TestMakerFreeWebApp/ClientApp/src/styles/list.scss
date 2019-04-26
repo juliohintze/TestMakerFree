@@ -1,0 +1,32 @@
+@import './color-variables.scss';
+
+.list {
+    display: block;
+    padding: 0;
+
+    list-style-type: none;
+
+    & > li {
+        display: block;
+        border-bottom: 1px solid $light;
+
+        a {
+            display: block;
+            padding: 16px 0px;
+
+            &:focus {
+                background-color: rgba(0, 0, 0, 0.04);
+            }
+        }
+
+        &:first-child {
+            border-top: 1px solid $light;
+        }
+    }
+
+    &.list-hover {
+        li:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+    }
+}

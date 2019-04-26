@@ -1,0 +1,40 @@
+@import '../../../../../styles/color-variables.scss';
+
+.table {
+    min-width: 600px;
+
+    tr {
+        transition-duration: 0.2s;
+    }
+
+
+
+    td, th {
+        &:first-child {
+            width: 100px;
+            text-align: center;
+
+            fa-icon {
+                margin: auto 5px;
+            }
+        }
+
+        &:last-child {
+            width: 225px;
+            text-align: center;
+        }
+    }
+}
+
+.cdk-drag-handle {
+    cursor: n-resize;
+}
+
+.cdk-drag-placeholder {
+    background-color: rgba(0, 0, 0, 0.05);
+    z-index: 9999;
+}
+
+.cdk-drag-preview {
+    opacity: 0;
+}

@@ -1,0 +1,39 @@
+@import '../../../../../styles/color-variables.scss';
+
+
+.title {
+    display: flex;
+    align-content: center;
+
+    h2 {
+        flex: 1;
+
+        span {
+            // font-size: 0.8em;
+            font-weight: normal;
+            color: $dark;
+        }
+    }
+
+    .btn-group {
+        display: flex;
+        align-items: center;
+
+        span {
+            display: none;
+        }
+    }
+}
+
+
+
+@media (min-width: 1200px) {
+    .title {
+        .btn-group {
+            span {
+                display: inline;
+                margin-left: 5px;
+            }
+        }
+    }
+}

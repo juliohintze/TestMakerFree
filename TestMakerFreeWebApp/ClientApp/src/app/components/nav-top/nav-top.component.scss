@@ -1,0 +1,204 @@
+@import '../../../styles/color-variables.scss';
+
+:host {
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+
+    .menu-logo,
+    form {
+        height: 50px;
+        overflow: hidden;
+    }
+
+    .menu-logo {
+        display: flex;
+
+        button {
+            display: block;
+            width: 50px;
+
+            background-color: transparent;
+            border: 0px;
+
+            font-size: 18px;
+
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.2);
+            }
+
+            &:focus {
+                outline: 0px;
+            }
+        }
+
+        .logo {
+            flex: 1;
+
+            display: flex;
+
+            img {
+                margin: auto;
+
+                height: 100%;
+                width: 100%;
+
+                max-height: 85%;
+                max-width: 90%;
+            }
+        }
+    }
+
+    form {
+        position: relative;
+
+        input {
+            border-width: 1px 0px;
+            border-radius: 0px;
+            border-style: solid;
+            border-color: $light;
+
+            height: 100%;
+            width: 100%;
+
+            padding-left: 40px;
+
+            font-size: 0.95em;
+            text-align: center;
+
+            &:focus {
+                outline: 0px;
+            }
+        }
+
+        fa-icon {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            z-index: 1;
+            pointer-events: none;
+        }
+    }
+}
+
+@media (min-width: 900px) {
+    :host {
+        flex-direction: row;
+
+        .menu-logo {
+            width: 250px;
+        }
+
+        form {
+            flex: 1;
+
+            input {
+                border-width: 0px;
+
+                text-align: left;
+            }
+        }
+    }
+}
+
+// :host {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: stretch;
+//     height: 100px;
+//     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+
+//     .menu-logo {
+//         width: 100%;
+//         display: flex;
+
+//         button {
+//             width: 50px;
+
+//             outline: 0;
+//             border: 0px;
+//             background-color: transparent;
+
+//             font-size: 1.3em;
+
+//             cursor: pointer;
+
+//             &:hover {
+//                 background-color: $bg-light;
+//             }
+
+//             &:focus {
+//                 background-color: $bg-grey;
+//             }
+//         }
+
+//         .logo {
+//             display: flex;
+//             flex: 1;
+
+//             img {
+//                 max-height: 75%;
+//                 max-width: 200px;
+//                 margin: auto;
+//             }
+//         }
+
+//     }
+
+//     form {
+//         flex: 1;
+//         display: block;
+//         position: relative;
+
+//         input {
+//             border: 0;
+//             border-radius: 0px;
+//             border-top: 1px solid $light;
+//             height: 100%;
+//             padding-left: 40px;
+//             font-size: 0.95em;
+//             width: 100%;
+//             text-align: center;
+//         }
+
+//         fa-icon {
+//             position: absolute;
+//             top: 50%;
+//             left: 15px;
+//             transform: translateY(-50%);
+//             z-index: 1;
+//             pointer-events: none;
+//         }
+//     }
+// }
+
+// @media (min-width: 900px) {
+//     :host {
+//         height: 50px;
+//         flex-direction: row;
+
+//         .menu-logo {
+//             width: auto;
+    
+//             .logo {
+//                 img {
+//                     max-height: 75%;
+//                     max-width: 200px;
+//                     margin: auto;
+//                 }
+//             }
+    
+//         }
+    
+//         form {
+//             input {
+//                 text-align: left;
+//                 border-top: 0px;
+//             }
+//         }
+//     }
+// }

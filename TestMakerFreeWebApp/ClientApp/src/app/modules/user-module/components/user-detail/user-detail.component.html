@@ -1,0 +1,41 @@
+<div *ngIf="status === 'loaded'">
+    <h2>User detail - {{user.displayName}}</h2>
+    <hr>
+
+    <div class="user-info">
+        <p>
+            <span class="title">Display name</span>
+            <span class="info">{{user.displayName}}</span>
+        </p>
+    
+        <p>
+            <span class="title">E-mail</span>
+            <span class="info">{{user.email}}</span>
+        </p>
+        <p *ngIf="totalQuizzes > -1">
+            <span class="title">Total quizzes</span>
+            <span class="info">{{totalQuizzes}}</span>
+        </p>
+    </div>
+
+    <div *ngIf="quizSearch && quizSearch.results.length > 0" class="mt">
+        <h2>Quizzes</h2>
+        <hr>
+
+        <form (submit)="onSearchSubmit()">
+            <div class="search-box">
+                <fa-icon [icon]="faSearch"></fa-icon>
+                <label class="floating-label">
+                    <input type="text" class="form-control" placeholder=" " name="searchQuery" [(ngModel)]="searchQuery">
+                    <span>Search quiz</span>
+                </label>
+            </div>
+        </form>
+
+        <p *ngIf="resultsFiltered">{{quizSearch.totalResults + (quizSearch.totalResults === 1 ? ' result' : ' results')}} found</p>
+        <app-quiz-list [list]="quizSearch.results"></app-quiz-list>
+        
+        <app-pagination [current-page]="currentPage" [last-page]="quizSearch.totalPages" (pageChange)="goToPage($event)"></app-pagination>
+    </div>
+
+</div>

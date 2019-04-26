@@ -1,0 +1,10 @@
+<button (click)="onButtonClick(1)" [disabled]="currentPage === 1"> &lt;&lt; </button>
+<button (click)="onButtonClick(currentPage - 1)" [disabled]="currentPage === 1" *ngIf="large"> &lt; </button>
+
+<button *ngFor="let page of paginationButtons; let i = index;" (click)="onButtonClick(page)"
+    [disabled]="currentPage === page" [ngClass]="{'active': currentPage === page}">
+    {{page}}
+</button>
+
+<button (click)="onButtonClick(currentPage + 1)" [disabled]="currentPage === lastPage" *ngIf="large"> &gt; </button>
+<button (click)="onButtonClick(lastPage)" [disabled]="currentPage === lastPage"> &gt;&gt; </button>

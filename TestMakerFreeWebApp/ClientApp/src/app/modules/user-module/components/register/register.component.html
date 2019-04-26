@@ -1,0 +1,54 @@
+<div class="login-form-container">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <h1 class="text-center">Register</h1>
+    
+        <p>Please insert your credentials!</p>
+    
+        <div class="control-container">
+            <label class="floating-label">
+                <input type="text" class="form-control" placeholder=" " formControlName="username" [ngClass]="{'error': hasError('username')}"
+                    required>
+                <span>Username</span>
+            </label>
+            <p *ngIf="hasError('username')" class="error-message">Please insert your username!</p>
+        </div>
+    
+        <div class="control-container">
+            <label class="floating-label">
+                <input type="text" class="form-control" placeholder=" " formControlName="displayName" [ngClass]="{'error': hasError('displayName')}"
+                    required>
+                <span>Display name</span>
+            </label>
+            <p *ngIf="hasError('displayName')" class="error-message">Please insert a display name.</p>
+        </div>
+    
+        <div class="control-container">
+            <label class="floating-label">
+                <input type="email" class="form-control" placeholder=" " formControlName="email" [ngClass]="{'error': hasError('email')}"
+                    required>
+                <span>E-mail</span>
+            </label>
+            <p *ngIf="hasError('email')" class="error-message">Please insert your e-mail</p>
+        </div>
+    
+        <div class="control-container">
+            <label class="floating-label">
+                <input type="password" class="form-control" placeholder=" " formControlName="password" [ngClass]="{'error': hasError('password')}"
+                    required>
+                <span>Password</span>
+            </label>
+            <p *ngIf="hasError('password')" class="error-message">Please insert your password with at least 6 characters.</p>
+        </div>
+    
+        <div class="control-container">
+            <label class="floating-label">
+                <input type="password" class="form-control" placeholder=" " formControlName="confirmPassword" [ngClass]="{'error': hasError('confirmPassword')}"
+                    required>
+                <span>Confirm your password</span>
+            </label>
+            <p *ngIf="hasError('confirmPassword')" class="error-message">The passwords don't match!</p>
+        </div>
+    
+        <button class="btn-blue" type="submit" [disabled]="!form.valid">Register!</button>
+    </form>
+</div>

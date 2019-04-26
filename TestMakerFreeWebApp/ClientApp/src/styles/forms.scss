@@ -1,0 +1,51 @@
+@import './color-variables.scss';
+
+.form-control {
+    width: 100%;
+    border: 1px solid $light;
+    border-radius: 3px;
+    padding: 10px 15px;
+    font-size: 0.95em;
+    font-family: MS Shell Dlg 2, Verdana, Arial, Helvetica, sans-serif;
+    transition-duration: 0.1s;
+
+    &:focus {
+        border-color: $dark;
+    }
+
+    &.error {
+        border-color: $red;
+    }
+}
+
+.floating-label {
+    position: relative;
+    display: block;
+
+    input:placeholder-shown + span {
+        font-size: 0.95em;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #767676;
+    }
+
+    input:focus + span,
+    span {
+        position: absolute;
+        left: 17px;
+        pointer-events: none;
+        font-size: 0.7em;
+        font-family: 'MS Shell Dlg 2';
+        top: 3px;
+        color: $dark;
+        transform: none;
+        transition-duration: 0.1s;
+    }
+
+    input {
+        padding-top: 17px;
+        padding-bottom: 3px;
+    }
+
+    
+}

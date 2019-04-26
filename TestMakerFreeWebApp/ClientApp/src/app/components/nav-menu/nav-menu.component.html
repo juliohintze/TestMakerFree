@@ -1,0 +1,63 @@
+<nav>
+    <ul>
+        <li [routerLinkActive]="['active']">
+            <a (click)="onItemClick()" routerLink="quiz/all"><fa-icon [icon]="faHome"></fa-icon> Home</a>
+        </li>
+
+        <li [routerLinkActive]="['active']" *ngIf="isLoggedIn" class="border-top">
+            <a (click)="onItemClick()" routerLink="quiz/create"><fa-icon [icon]="faPlus"></fa-icon> Create quiz</a>
+        </li>
+        <li [routerLinkActive]="['active']" *ngIf="isLoggedIn">
+            <a (click)="onItemClick()" routerLink="quiz/liked"><fa-icon [icon]="faLike"></fa-icon> Liked quizzes</a>
+        </li>
+        <li [routerLinkActive]="['active']" *ngIf="isLoggedIn">
+            <a (click)="onItemClick()" routerLink="quiz/taken"><fa-icon [icon]="faClock"></fa-icon> Taken quizzes</a>
+        </li>
+        <li [routerLinkActive]="['active']" *ngIf="isLoggedIn">
+            <a (click)="onItemClick()" routerLink="quiz/made"><fa-icon [icon]="faUser"></fa-icon> Your quizzes</a>
+        </li>
+
+        <li [routerLinkActive]="['active']" *ngIf="isLoggedIn" class="border-top">
+            <a (click)="onItemClick()" routerLink="user/all"><fa-icon [icon]="faUsers"></fa-icon> Users</a>
+        </li>
+        
+        <li *ngIf="isLoggedIn" class="email">
+            <span>{{userEmail}}</span>
+        </li>
+        <li [routerLinkActive]="['active']" *ngIf="isLoggedIn">
+            <a (click)="onItemClick()" routerLink="user/change-password"><fa-icon [icon]="faPass"></fa-icon> Change password</a>
+        </li>
+        <li *ngIf="isLoggedIn">
+            <a (click)="onLogout()" routerLink=""><fa-icon [icon]="faLogout"></fa-icon> Logout</a>
+        </li>
+
+        <li [routerLinkActive]="['active']" *ngIf="!isLoggedIn" class="border-top">
+            <a (click)="onItemClick()" routerLink="user/login"><fa-icon [icon]="faLogin"></fa-icon> Login</a>
+        </li>
+        <li [routerLinkActive]="['active']" *ngIf="!isLoggedIn">
+            <a (click)="onItemClick()" routerLink="user/register"><fa-icon [icon]="faUser"></fa-icon> Register</a>
+        </li>
+
+        <li [routerLinkActive]="['active']" class="border-top">
+            <a (click)="onItemClick()" routerLink="about"><fa-icon [icon]="faInfo"></fa-icon> About</a>
+        </li>
+        
+    </ul>
+</nav>
+
+<!--
+    Home
+    -
+    Create quiz
+    Your quizzes
+    Taken quizzes
+    Liked quizzes
+    -
+    Users
+    -
+    (Email)
+    Change password
+    Logout
+    -
+    About
+-->

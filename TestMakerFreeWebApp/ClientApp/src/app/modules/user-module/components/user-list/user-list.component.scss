@@ -1,0 +1,20 @@
+@import '../../../../../styles/color-variables.scss';
+
+.list {
+    li {
+        padding: 0;
+
+        a {
+            display: block;
+            padding: 16px 0px;
+            font-size: 1.05em;
+            outline: 0;
+
+            .display-name {
+                display: inline-block;
+                width: 200px;
+                font-weight: bold;
+            }
+        }
+    }
+}

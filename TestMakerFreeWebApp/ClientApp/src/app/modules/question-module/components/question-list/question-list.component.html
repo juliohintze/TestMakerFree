@@ -1,0 +1,30 @@
+<h3>Questions</h3>
+
+<div *ngIf="questions">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Text</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf="questions.length === 0">
+                <td class="text-center" colspan="2">
+                    This quiz has no questions
+                </td>
+            </tr>
+            <tr *ngFor="let question of questions">
+                <td>{{question.text}}</td>
+                <td>
+                    <div class="btn-group">
+                        <button class="btn-blue" (click)="onEditQuestion(question)"><fa-icon [icon]="faEdit"></fa-icon> Edit</button>
+                        <button class="btn-red" (click)="onDeleteQuestion(question)"><fa-icon [icon]="faTrash"></fa-icon> Delete</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button class="btn-blue" (click)="onCreateQuestion()"><fa-icon [icon]="faPlus"></fa-icon> Create new question</button>
+</div>

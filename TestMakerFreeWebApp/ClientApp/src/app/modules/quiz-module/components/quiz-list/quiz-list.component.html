@@ -1,0 +1,13 @@
+<ul class="list list-hover" *ngIf="list">
+    <li *ngIf="list.length === 0">
+        <span class="no-results">No results found</span>
+    </li>
+    <li *ngFor="let quiz of list">
+        <a [routerLink]="'/quiz/' + quiz.id">
+            <span class="title">{{quiz.title}}</span>
+            <span class="desc">
+                <span class="text-wrap">{{quiz.description}}</span>
+            </span>
+        </a>
+    </li>
+</ul>

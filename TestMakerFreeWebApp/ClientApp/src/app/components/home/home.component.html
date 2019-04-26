@@ -1,0 +1,13 @@
+<div class="top">
+    <app-nav-top></app-nav-top>
+</div>
+
+<div class="content" [ngClass]="{'menu-opened': menuState === 'open'}">
+    <div class="menu-bg" (click)="closeMenu()" *ngIf="menuState === 'open' && !isSideBySide" [@fade]></div>
+    <app-nav-menu class="menu" *ngIf="menuState === 'open'" [@openClose] (itemClick)="onMenuItemClick()"></app-nav-menu>
+    <div class="body" [@openCloseBody]="bodyState">
+        <div class="container">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

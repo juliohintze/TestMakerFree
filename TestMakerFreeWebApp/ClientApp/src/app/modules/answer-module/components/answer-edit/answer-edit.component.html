@@ -1,0 +1,48 @@
+<div *ngIf="state === 'loading'">
+    <p>Loading...</p>
+</div>
+
+<div *ngIf="state === 'error'">
+    <p>Answer not found...</p>
+</div>
+
+<div *ngIf="state === 'loaded'">
+    <h2>{{editMode ? 'Edit answer' : 'Create answer'}}</h2>
+    
+    <form [formGroup]="form" (ngSubmit)="onSave()">
+        <div *ngIf="question">
+            <p class="bold">Question</p>
+            <p>{{question.text}}</p>
+        </div>
+    
+        <div class="control-container">
+            <label for="txtText" class="bold">Answer text:</label>
+            <input type="text" name="text" id="txtText" class="form-control" formControlName="text" [ngClass]="{'error': hasError('text')}">
+            <p class="error-message" *ngIf="hasError('text')">This field can't be blank!</p>
+        </div>
+
+        <div class="control-container" *ngIf="results && results.length > 0">
+            <label class="bold">Related result:</label>
+
+            <div class="results">
+                <button type="button" 
+                        *ngFor="let result of results" 
+                        [ngClass]="{ 'active': getRelatedResultId() === result.id }"
+                        (click)="onResultClick(result)">
+                    <fa-icon class="circle" [icon]="faCircle"></fa-icon>
+                    <fa-icon class="check" [icon]="faCheckCircle"></fa-icon>
+                    {{result.text}}
+                </button>
+            </div>
+        </div>
+    
+        <div class="buttons">
+            <button class="btn-blue" type="submit" [disabled]="!form.valid">
+                <fa-icon [icon]="faSave"></fa-icon> Save changes
+            </button>
+            <button class="btn-red" type="button" (click)="editMode ? onBack() : onCancel()">
+                <fa-icon [icon]="faTimes"></fa-icon> {{editMode ? 'Go back' : 'Cancel'}}
+            </button>
+        </div>
+    </form>
+</div>

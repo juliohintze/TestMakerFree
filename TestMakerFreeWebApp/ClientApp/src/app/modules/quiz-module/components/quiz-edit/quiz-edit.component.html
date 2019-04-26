@@ -1,0 +1,70 @@
+<div *ngIf="state === 'error'">
+    <p>Quiz not found!</p>
+</div>
+
+<div *ngIf="state === 'loading'">
+    <p>Loading...</p>
+</div>
+
+<div *ngIf="state === 'loaded'">
+    <h2 class="mb-3">{{title}}</h2>
+
+    <div>
+        <div class="tabs">
+            <button class="tab" (click)="onChangeTab('quiz')" [ngClass]="{'active': isTab(0)}">
+                Quiz
+            </button>
+            <button class="tab" (click)="onChangeTab('questions')" [ngClass]="{'active': isTab(1)}">
+                Questions
+            </button>
+            <button class="tab" (click)="onChangeTab('results')" [ngClass]="{'active': isTab(2)}">
+                Results
+            </button>
+        </div>
+    
+        <div class="tab-content">
+            <div *ngIf="isTab(0)">
+                <h3>Quiz</h3>
+    
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <div class="control-container">
+                        <label for="txtTitle" class="bold">Title:</label>
+                        <input id="txtTitle" class="form-control" type="text" [ngClass]="{'error': hasError('title')}"
+                            placeholder="Insert a title..." formControlName="title">
+                        <p class="error-message" *ngIf="hasError('title')">This field can't be blank!</p>
+                    </div>
+                    
+                    <div class="control-container">
+                        <label for="txtDesc" class="bold">Description:</label>
+                        <textarea id="txtDesc" class="form-control" name="desc" placeholder="Insert a description..." formControlName="description"></textarea>
+                    </div>
+
+                    <div class="quiz-options">
+                        <button type="submit" class="btn-blue" [disabled]="form.invalid">
+                            <fa-icon [icon]="faSave"></fa-icon> Save changes!
+                        </button>
+
+                        <button type="button" class="btn-red" (click)="onCancel()" *ngIf="!editMode">
+                            <fa-icon [icon]="faTimes"></fa-icon> Cancel
+                        </button>
+
+                        <button type="button" [ngClass]="quiz.published ? 'btn-green' : 'btn-orange'" (click)="togglePublish()" [disabled]="publishing">
+                            <fa-icon [icon]="quiz.published ? faCheck : faSquare"></fa-icon>
+                            Publish
+                        </button>
+
+                        <!-- <button type="button" class="btn-green publish" -->
+                    </div>
+                </form>
+            </div>
+    
+            <div *ngIf="isTab(1)">
+                <app-question-list [quiz]="quiz"></app-question-list>
+            </div>
+    
+            <div *ngIf="isTab(2)">
+                <app-result-list [quiz]="quiz"></app-result-list>
+            </div>
+        </div>
+    </div>        
+</div>

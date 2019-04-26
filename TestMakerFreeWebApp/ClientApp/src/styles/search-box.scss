@@ -1,0 +1,23 @@
+.search-box {
+    display: flex;
+    align-content: stretch;
+
+    fa-icon {
+        border-radius: 3px 0px 0px 3px;
+        padding: 9px 12px;
+        background-color: $bg-grey;
+        color: $dark;
+    }
+
+    label {
+        flex: 1;
+
+        input {
+            border-radius: 0px 3px 3px 0px;
+
+            &:focus {
+                border-color: $light;
+            }
+        }
+    }
+}

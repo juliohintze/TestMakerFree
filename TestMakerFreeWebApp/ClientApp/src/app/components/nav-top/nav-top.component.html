@@ -1,0 +1,12 @@
+<div class="menu-logo">
+    <button (click)="toggleMenu()" class="menu-toggle relative"><fa-icon [icon]="faBars"></fa-icon></button>
+    <div class="logo">
+        <!-- Loginho -->
+        <img src="../../../assets/logo.svg" alt="">
+    </div>
+</div>
+
+<form (submit)="onSubmit()">
+    <input type="text" class="form-control" placeholder="Search a quiz" name="searchText" [(ngModel)]="searchText">
+    <fa-icon [icon]="faSearch"></fa-icon>
+</form>

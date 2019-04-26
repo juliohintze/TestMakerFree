@@ -1,0 +1,57 @@
+<div *ngIf="state === 'ready'">
+    <div class="title-options">
+        <h2>{{quiz.title}}</h2>
+        <div *ngIf="!userIsMaker && !userIsAdmin">
+            <button class="btn-blue" (click)="onLike()" [ngClass]="{'active cursor-pointer': quiz.liked}">
+                <fa-icon [icon]="faLike"></fa-icon> <span>Like ({{quiz.likeCount}})</span>
+            </button>
+        </div>
+        <div *ngIf="!userIsMaker && userIsAdmin" class="btn-group">
+            <button class="btn-blue" (click)="onLike()" [ngClass]="{'active cursor-pointer': quiz.liked}">
+                <fa-icon [icon]="faLike"></fa-icon> <span>Like ({{quiz.likeCount}})</span>
+            </button>
+            <button *ngIf="userIsMaker" class="btn-red" (click)="onDelete()">
+                <fa-icon [icon]="faTrash"></fa-icon>
+                <span>Delete</span>
+            </button>
+        </div>
+        <div *ngIf="userIsMaker" class="btn-group">
+            <button *ngIf="userIsMaker" class="btn-blue" (click)="onEdit()">
+                <fa-icon [icon]="faEdit"></fa-icon>
+                <span>Edit</span>
+            </button>
+            <button *ngIf="userIsMaker" class="btn-red" (click)="onDelete()">
+                <fa-icon [icon]="faTrash"></fa-icon>
+                <span>Delete</span>
+            </button>
+        </div>
+    </div>
+    <!-- <p class="bold">Made by: <a [routerLink]="'user/' + quiz.userId"></a></p> -->
+    <p>{{quiz.description}}</p>
+
+    <div class="options">
+        <button class="btn-blue" (click)="onTake()">
+            <fa-icon [icon]="faClipboard"></fa-icon>
+            Take the quiz</button>
+
+        <button class="btn-red" (click)="onBack()">
+            <fa-icon [icon]="faCaretLeft"></fa-icon> Go back
+        </button>
+    </div>
+</div>
+
+<div *ngIf="state === 'loading'">
+    <h2>Loading...</h2>
+
+    <p>Wait a moment, please.</p>
+</div>
+
+<div *ngIf="state === 'notFound'">
+    <h2>Quiz not found</h2>
+
+    <p>Is the URL correct?</p>
+
+    <button class="btn btn-primary relative" (click)="onBack()">
+        <fa-icon [icon]="faCaretLeft"></fa-icon>
+        Go back</button>
+</div>

@@ -1,0 +1,20 @@
+<h1>Welcome to TestMakerFree</h1>
+<p>A sample SPA project made with .NET Core and Angular.</p>
+
+<div class="title">
+    <h2>{{getTitle()}} <span *ngIf="state === 'loaded'">({{quizSearch.totalResults + (quizSearch.totalResults === 1 ? ' result' : ' results')}} found)</span></h2>
+    <div class="btn-group" *ngIf="!this.from">
+        <button (click)="onListSelect('latest')" class=" btn-blue" [ngClass]="{'active': selectedList === 'latest'}">
+            <fa-icon [icon]="faLatest"></fa-icon> <span>Latest</span></button>
+        <button (click)="onListSelect('mostViewed')" class=" btn-blue" [ngClass]="{'active': selectedList === 'mostViewed'}">
+            <fa-icon [icon]="faMostViewed"></fa-icon> <span>Most viewed</span></button>
+        <button (click)="onListSelect('byTitle')" class=" btn-blue" [ngClass]="{'active': selectedList === 'byTitle'}">
+            <fa-icon [icon]="faByTitle"></fa-icon> <span>By title</span></button>
+    </div>
+</div>
+
+<div *ngIf="quizSearch">
+    <app-quiz-list [list]="quizSearch.results"></app-quiz-list>
+    
+    <app-pagination [current-page]="currentPage" [last-page]="quizSearch.totalPages" (pageChange)="goToPage($event)"></app-pagination>
+</div>

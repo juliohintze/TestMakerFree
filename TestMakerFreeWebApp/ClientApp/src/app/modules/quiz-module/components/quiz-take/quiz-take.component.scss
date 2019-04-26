@@ -1,0 +1,60 @@
+@import '../../../../../styles/color-variables.scss';
+
+.question-container {
+    h2 {
+        border-bottom: 1px solid $light;
+        margin-bottom: 32px;
+    }
+    .question {
+        ul {
+            list-style: none;
+            padding: 0;
+
+            li {
+                button {
+                    width: 100%;
+                    border: 0px;
+                    background-color: transparent;
+                    font-family: LatoSans;
+                    font-size: 1.1em;
+                    text-align: left;
+                    padding: 15px;
+                    cursor: pointer;
+
+                    fa-icon {
+                        width: 50px;
+                        text-align: center;
+                        opacity: 0.2;
+                        display: inline-block;
+                    }
+
+                    &:hover {
+                        background-color: rgba(0, 0, 0, 0.02);
+                    }
+
+                    &.selected {
+                        font-weight: bold;
+                    }
+
+                    &:hover,
+                    &.selected {
+                        fa-icon {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+        .question-control {
+            button+button {
+                margin-left: 16px;
+            }
+        }
+    }
+}
+
+.buttons {
+    button + button {
+        margin-left: 16px;
+    }
+}

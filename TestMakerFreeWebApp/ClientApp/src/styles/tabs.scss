@@ -1,0 +1,39 @@
+@import './color-variables.scss';
+
+.tabs {
+    display: flex;
+    border-bottom: 1px solid $light;
+
+    .tab {
+        border-radius: 3px 3px 0px 0px;
+        font-size: 1.05em;
+        font-family: LatoSans;
+        padding: 10px 15px;
+        border: 1px solid transparent;
+        border-bottom: none;
+        cursor: pointer;
+        position: relative;
+        top: 1px;
+
+        background-color: transparent;
+
+
+        &.active {
+            background-color: white;
+            font-weight: bold;
+            cursor: default;
+        }
+
+        &.active,
+        &:hover {
+            border-color: $light;
+        }
+    }
+}
+
+.tab-content {
+    padding: 15px;
+    border: 1px solid $light;
+    border-top: none;
+    background-color: white;
+}

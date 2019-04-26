@@ -1,0 +1,82 @@
+@import './color-variables.scss';
+
+@mixin btn-color($baseColor, $textColor, $textShadow, $darkColor, $lightColor) {
+    background-color: $baseColor;
+    color: $textColor;
+    text-shadow: 1px 1px 1px $textShadow;
+
+    &.active, &:hover, &:focus {
+        background-color: $darkColor;
+    }
+
+    &:hover, &:focus {
+        box-shadow: none;
+    }
+
+    &[disabled] {
+        background-color: $lightColor;
+        color: $darkColor;
+        text-shadow: 1px 1px 1px white;
+    }
+}
+
+%btn {
+    border: 0;
+    border-radius: 3px;
+    padding: 8px 16px;
+    background-color: $light;
+
+    font-size: 0.95em;
+    color: $dark;
+
+    cursor: pointer;
+    transition-duration: 0.1s;
+
+    &:focus {
+        outline: 0;
+    }
+
+    &.active {
+        box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.4);
+        cursor: default;
+    }
+
+    &[disabled] {
+        cursor: not-allowed;
+    }
+
+}
+
+.btn-blue {
+    @extend %btn;
+    @include btn-color($blue, white, $dark, $dark-blue, $light-blue);
+}
+
+.btn-red {
+    @extend %btn;
+    @include btn-color($red, white, $dark, $dark-red, $light-red);
+}
+
+.btn-green {
+    @extend %btn;
+    @include btn-color($green, white, $dark, $dark-green, $light-green);
+}
+
+.btn-orange {
+    @extend %btn;
+    @include btn-color($orange, white, $dark, $dark-orange, $light-orange);
+}
+
+.btn-group {
+    button {
+        border-radius: 0px;
+
+        &:first-child {
+            border-radius: 3px 0px 0px 3px;
+        }
+
+        &:last-child {
+            border-radius: 0px 3px 3px 0px;
+        }
+    }
+}

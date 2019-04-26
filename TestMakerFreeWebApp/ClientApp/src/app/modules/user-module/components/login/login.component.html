@@ -1,0 +1,25 @@
+<div class="login-form-container">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <h1 class="text-center">Login</h1>
+    
+        <p>Please insert your credentials!</p>
+    
+        <div class="control-container">
+            <label class="floating-label">
+                <input type="text" class="form-control" placeholder=" " formControlName="username" [ngClass]="{'error': hasError('username')}" required>
+                <span>Username or e-mail</span>
+            </label>
+            <p *ngIf="hasError('username')" class="error-message">Please insert your username or e-mail</p>
+        </div>
+    
+        <div class="control-container">
+            <label class="floating-label">
+                <input type="password" class="form-control" placeholder=" " formControlName="password" [ngClass]="{'error': hasError('password')}" required>
+                <span>Password</span>
+            </label>
+            <p *ngIf="hasError('password')" class="error-message">Please insert your password.</p>
+        </div>
+    
+        <button [ngClass]="wrongCredentials ? 'btn-red' : 'btn-blue'" type="submit" [disabled]="!form.valid || wrongCredentials">{{wrongCredentials ? 'Invalid username or password' : 'Login!'}}</button>
+    </form>
+</div>

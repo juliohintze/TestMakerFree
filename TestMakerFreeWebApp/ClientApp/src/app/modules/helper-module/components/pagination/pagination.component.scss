@@ -1,0 +1,48 @@
+@import '../../../../../styles/color-variables.scss';
+
+:host {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: center;
+
+    button {
+        margin: 0;
+        border: 1px solid $blue;
+        padding: 10px 15px;
+        background-color: white;
+        cursor: pointer;
+        font-family: LatoSans;
+        font-size: 1em;
+        transition-duration: 0.1s;
+
+        &:hover:not(.active):not([disabled]), &:focus {
+            box-shadow: inset 0px 0px 0px 1px $blue;
+        }
+
+        & + button {
+            border-left: 0px;
+        }
+
+        &:first-child {
+            border-radius: 3px 0px 0px 3px;
+        }
+
+        &:last-child {
+            border-radius: 0px 3px 3px 0px;
+        }
+
+        &[disabled] {
+            cursor: default;
+            color: $dark;
+        }
+
+        &.active {
+            background-color: $blue;
+            font-weight: bold;
+            text-shadow: 1px 1px black;
+            color: white;
+        }
+
+    }
+}

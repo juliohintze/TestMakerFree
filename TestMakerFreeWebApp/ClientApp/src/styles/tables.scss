@@ -1,0 +1,36 @@
+@import './color-variables.scss';
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    margin-bottom: 16px;
+
+    tr {
+        border-bottom: 1px solid $light;
+
+        &:first-child {
+            border-top: 1px solid $light;
+        }
+    }
+
+    th {
+        background-color: $lighter;
+        color: $dark;
+    }
+
+    td, th {
+        padding: 10px 15px;
+    }
+}
+
+.table-responsive {
+    overflow-x: auto;
+    margin-top: 16px;
+    margin-bottom: 16px;
+
+    .table {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}

@@ -1,0 +1,24 @@
+<h1>Users <span *ngIf="userSearch && searchHasQuery">({{searchLength + (searchLength !== 1 ? ' results' : ' result')}} found)</span></h1>
+
+<form (submit)="search()">
+    <div class="search-box">
+        <fa-icon [icon]="faSearch"></fa-icon>
+        <label class="floating-label">
+            <input type="text" class="form-control" placeholder=" " name="searchQuery" [(ngModel)]="searchQuery">
+            <span>Search user</span>
+        </label>
+    </div>
+</form>
+
+<div *ngIf="state === 'loaded'">
+    <ul class="list list-hover">
+        <li *ngFor="let user of userSearch.results">
+            <a [routerLink]="'/user/' + user.id">
+                <span class="display-name">{{user.displayName}}</span>
+                <span class="email">{{user.email}}</span>
+            </a>
+        </li>
+    </ul>
+    
+    <app-pagination [current-page]="currentPage" [last-page]="userSearch.totalPages" (pageChange)="goToPage($event)"></app-pagination>
+</div>

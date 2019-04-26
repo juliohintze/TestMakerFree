@@ -1,0 +1,40 @@
+<div *ngIf="state === 'loaded'" class="question-container">
+    <h2>{{quiz.title}}</h2>
+
+    <div *ngIf="result">
+        <h3>And the results are in!</h3>
+
+        <p>{{result.text}}</p>
+
+        <div class="buttons">
+            <button class="btn-blue" [ngClass]="{'active cursor-pointer': quiz.liked}" (click)="onLike()">
+                <fa-icon [icon]="faLike"></fa-icon> Like ({{quiz.likeCount}})
+            </button>
+            <button class="btn-orange" (click)="onBack()">
+                <fa-icon [icon]="faCaretLeft"></fa-icon> Go back
+            </button>
+        </div>
+    </div>
+
+    <div *ngIf="!result">
+        <div class="question">
+            <h3>{{currentQuestionNumber + ' - ' + currentQuestion.text}}</h3>
+    
+            <ul>
+                <li *ngFor="let answer of currentQuestion.answers; let i = index;">
+                    <button [ngClass]="{'selected': selectedAnswer === answer}" (click)="selectAnswer(answer)">
+                        <fa-icon [icon]="answer === selectedAnswer ? faCheckCircle : faCircle"></fa-icon>
+                        {{answer.text}}</button>
+                </li>
+            </ul>
+    
+            <div class="question-control">
+                <button class="btn-red" [disabled]="!canPrev" (click)="prevQuestion()">Previous question</button>
+                <button class="btn-blue" [disabled]="!canNext" (click)="nextQuestion()" 
+                    *ngIf="quiz.questions.length !== currentQuestionNumber">Next question</button>
+                <button class="btn-blue" [disabled]="!selectedAnswer" (click)="calculateResult()"
+                    *ngIf="quiz.questions.length === currentQuestionNumber">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

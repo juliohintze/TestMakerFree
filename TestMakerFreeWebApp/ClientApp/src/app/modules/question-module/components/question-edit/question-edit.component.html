@@ -1,0 +1,57 @@
+<div *ngIf="state === 'loading'">
+    <p>Loading...</p>
+</div>
+
+<div *ngIf="state === 'error'">
+    <p>Question not found</p>
+</div>
+
+<div *ngIf="state === 'loaded'">
+    <h2 class="mb-3">{{editMode ? 'Edit question' : 'Create question'}}</h2>
+    
+    <div class="tabs">
+        <button class="tab" [ngClass]="{'active': isTab(0)}" (click)="onTabChange('question')">
+            Question info
+        </button>
+        <button class="tab" [ngClass]="{'active': isTab(1)}" (click)="onTabChange('answers')">
+            Answers
+        </button>
+    </div>
+
+    <div class="tab-content">
+        <div [hidden]="!isTab(0)">
+            <form [formGroup]="form" (ngSubmit)="onSave()">
+                <h3>Question info</h3>
+
+                <div class="quiz-title" *ngIf="quiz">
+                    <p class="bold">Quiz title:</p>
+                    <p>{{quiz.title}}</p>
+                </div>
+    
+                <div class="control-container">
+                    <label for="txtText" class="bold">Question text:</label>
+                    <input type="text" name="text" id="txtText" class="form-control" formControlName="text" [ngClass]="{'error': hasError('text')}">
+                    <p *ngIf="hasError('text')" class="error-message">This field can't be blank!</p>
+                </div>
+    
+                <div class="buttons">
+                    <button type="submit" class="btn-blue" [disabled]="!form.valid">
+                        <fa-icon [icon]="faSave"></fa-icon> Save changes
+                    </button>
+                    <button type="button" class="btn-red" (click)="editMode ? onBack() : onCancel()">
+                        <fa-icon [icon]="faTimes"></fa-icon> {{editMode ? 'Go back' : 'Cancel'}}
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div [hidden]="!isTab(1)">
+            <div class="mb-3">
+                <label class="bold m-0">Question:</label>
+                <p>{{question.text}}</p>
+            </div>
+
+            <app-answer-list [question]="question"></app-answer-list>
+        </div>
+    </div>
+</div>

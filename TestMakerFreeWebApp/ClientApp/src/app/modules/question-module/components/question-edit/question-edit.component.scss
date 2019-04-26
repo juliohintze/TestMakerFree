@@ -1,0 +1,25 @@
+.tab-content {
+
+    h3 {
+        margin-top: 0px;
+    }
+
+    .quiz-title {
+        p {
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+    }
+
+    .quiz-title,
+    .control-container {
+        margin-bottom: 16px;
+        margin-top: 16px;
+    }
+
+    .buttons {
+        button + button {
+            margin-left: 16px;
+        }
+    }
+}

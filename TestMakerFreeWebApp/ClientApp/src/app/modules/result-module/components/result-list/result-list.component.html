@@ -1,0 +1,34 @@
+<h3>Results</h3>
+
+<div *ngIf="results">
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Priority</th>
+                    <th>Text</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody cdkDropList [cdkDropListData]="results" (cdkDropListDropped)="onDrop($event)">
+                <tr *ngIf="results.length === 0">
+                    <td colspan="4" class="text-center">
+                        This quiz has no results
+                    </td>
+                </tr>
+                <tr *ngFor="let result of results" cdkDrag [cdkDragDisabled]="dragDisabled">
+                    <td cdkDragHandle><fa-icon [icon]="faGrip"></fa-icon> {{result.priority}}</td>
+                    <td>{{result.text}}</td>
+                    <td>
+                        <div class="btn-group">
+                            <button class="btn-blue" (click)="onResultEdit(result)"><fa-icon [icon]="faEdit"></fa-icon> Edit</button>
+                            <button class="btn-red relative" (click)="onResultDelete(result)"><fa-icon [icon]="faTrash"></fa-icon> Delete</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button class="btn-blue" (click)="onResultCreate()"><fa-icon [icon]="faPlus"></fa-icon> Create new result</button>
+</div>

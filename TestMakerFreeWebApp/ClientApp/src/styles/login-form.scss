@@ -1,0 +1,27 @@
+.login-form-container {
+    display: flex;
+    height: 100%;
+    
+    form {
+        margin: auto;
+        width: 100%;
+        max-width: 400px;
+        padding: 25px 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        background-image: linear-gradient(
+            to bottom right,
+            rgba(255, 255, 255, 0.1),
+            rgba(255, 255, 255, 1)
+        );
+    
+        .control-container {
+            margin-top: 16px;
+            margin-bottom: 16px;
+        }
+    
+        button {
+            width: 100%;
+        }
+    }
+}

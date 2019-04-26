@@ -1,0 +1,61 @@
+// /* You can add global styles to this file, and also import other style files */
+
+@import './styles/color-variables.scss';
+@import './styles/font-face.scss';
+@import './styles/buttons.scss';
+@import './styles/list.scss';
+@import './styles/forms.scss';
+@import './styles/pagination.scss';
+@import './styles/tabs.scss';
+@import './styles/tables.scss';
+@import './styles/search-box.scss';
+@import './styles/login-form.scss';
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+*::-moz-focus-inner {
+    border: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    font-family: LatoSans;
+    color: $darker;
+    background-color: $bg-lighter;
+}
+
+a {
+    text-decoration: none;
+    color: $blue;
+}
+
+.error-message {
+    color: $red;
+    font-size: 0.9em;
+    margin-top: 0;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.cursor-pointer {
+    cursor: pointer !important;
+}
+
+.text-wrap {
+    text-overflow: ellipsis;
+
+    /* Required for text-overflow to do anything */
+    white-space: nowrap;
+    overflow: hidden;
+}

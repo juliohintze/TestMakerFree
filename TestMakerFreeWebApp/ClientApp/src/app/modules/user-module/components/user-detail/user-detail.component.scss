@@ -1,0 +1,72 @@
+@import '../../../../../styles/color-variables.scss';
+
+h2 {
+    margin-bottom: 10px;
+}
+
+.mt {
+    margin-top: 25px;
+}
+
+hr {
+    border: 0px;
+    border-bottom: 1px solid $dark;
+}
+
+.user-info {
+    .title, .info {
+        display: block;
+    }
+
+    .title {
+        font-weight: bold;
+        font-size: 1.1em;
+    }
+}
+
+.list {
+    li {
+        padding: 0;
+
+        a {
+            display: block;
+            padding: 16px 0px;
+            outline: 0;
+
+            .title {
+                display: block;
+                font-weight: bold;
+                font-size: 1.05em;
+            }
+
+            .desc {
+                color: $dark;
+            }
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .list {
+        li {
+            a {
+                display: flex;
+    
+                span {
+                    display: block;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                }
+    
+                .title {
+                    width: 400px;
+                }
+    
+                .desc {
+                    flex: 1;
+                }
+            }
+        }
+    }
+}

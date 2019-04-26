@@ -1,0 +1,76 @@
+@import '../../../../../styles/color-variables.scss';
+
+form {
+    .control-container {
+        margin-top: 16px;
+        margin-bottom: 16px;
+
+        .results {
+            border: 1px solid $light;
+            border-radius: 3px;
+            // overflow: hidden;
+
+            button {
+                display: block;
+                width: 100%;
+                padding: 10px;
+                overflow: hidden;
+
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                text-align: left;
+                color: $dark;
+
+                border: 0;
+
+                background-color: transparent;
+
+                cursor: pointer;
+
+                
+                input {
+                    display: none;
+                }
+
+                fa-icon {
+                    margin-right: 5px;
+                    transition-duration: 0.1s;
+                }
+                
+                .check {
+                    display: none;
+                }
+
+                .circle {
+                    opacity: 0.4;
+                }
+
+                &:hover, &:focus {
+                    background-color: rgba(0, 0, 0, 0.05);
+
+                    .circle {
+                        opacity: 1;
+                    }
+                }
+
+                &.active {
+                    font-weight: bold;
+
+                    .check {
+                        display: inline;
+                    }
+
+                    .circle {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .buttons {
+        button + button {
+            margin-left: 16px;
+        }
+    }
+}

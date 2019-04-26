@@ -1,0 +1,78 @@
+@import '../../../styles/color-variables.scss';
+
+nav {
+    ul {
+        padding: 0;
+        list-style-type: none;
+
+        li {
+            display: block;
+            
+            a {
+                display: block;
+                padding: 15px 20px;
+                color: $dark;
+                text-decoration: none;
+                outline: 0;
+
+                fa-icon {
+                    display: inline-block;
+                    width: 20px;
+                    text-align: center;
+                    margin-right: 16px;
+                }
+
+                &:focus {
+                    background-color: $bg-grey;
+                    color: $blue;
+                }
+            }
+
+            &.active, &:hover {
+                &:not(.email) {
+                    background-color: $bg-grey;
+                }
+            }
+
+            &.active a {
+                font-weight: bold;
+
+                fa-icon {
+                    color: $blue;
+                }
+            }
+
+            &.border-top {
+                a {
+                    border-top: 1px solid $light;
+                }
+            }
+
+            &.email {
+                border-top: 1px solid $light;
+
+                span {
+                    display: block;
+
+                    text-shadow: 1px 1px $dark;
+                    text-align: center;
+                    color: white;
+                    font-size: 0.9em;
+                    font-weight: bold;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    
+                    background-color: $blue;
+                    
+                    margin: 5px 10px;
+                    padding: 5px;
+                    
+                    border-radius: 20px;
+
+                    cursor: default;
+                    user-select: none;
+                }
+            }
+        }
+    }
+}

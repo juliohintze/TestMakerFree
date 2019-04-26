@@ -1,0 +1,56 @@
+@import '../../../../../styles/color-variables.scss';
+
+.list {
+    li {
+        padding: 0;
+
+        a {
+            span {
+                display: block;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+
+            .title {
+                font-weight: bold;
+                font-size: 1.05em;
+            }
+
+            .desc {
+                color: $dark;
+            }
+        }
+
+        .no-results, a {
+            padding: 16px 0px;
+            display: block;
+            outline: 0;
+        }
+
+        .no-results {
+            text-align: center;
+            font-weight: bold;
+            cursor: default;
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .list {
+        li {
+            a {
+                display: flex;
+                // flex-direction: row;
+    
+                .title {
+                    width: 400px;
+                }
+    
+                .desc {
+                    flex: 1;
+                }
+            }
+        }
+    }
+}
